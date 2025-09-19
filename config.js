@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 const conexion = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "Nacional22",
+  password: "",
   database: "unisoft"
 });
 
