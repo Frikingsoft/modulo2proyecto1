@@ -20,10 +20,33 @@
     height: 60px;
     background-color: rgb(7, 7, 97);
 }
-.contenido{
-    font-size: 50px;
+
+
+.menu{
+    width: 400px;
+    height: 70px;
+    position: absolute;
+    right: 0;
     
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 20px;
+    padding-right: 20px;
 }
-.contenido h5{
-    display: none;
+
+.boton{
+    width: 70px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    text-shadow: 1px 1px 2px grey,
+    2px 2px 3px black;
+    font-size: 20px;
+
+}
+.boton:hover{
+    transform: scale(1.2);
+    transition: 1s;
 }

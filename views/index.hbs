@@ -6,23 +6,17 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body>  
     <div class="titulo">
-        <h1> Pagina de Inicio </h1>
-    </div>
-    <div class="contenido">
-        <p>
-            contenido de la pagina
-        </p>
-         <button></button>
-        <button>enviar</button>
-         <button>enviarasasda</button>
-        <h5> Pagina de Inicio </h5>
-        <h5> Pagina de Inicio </h5>
+        <h1> InfoSoft </h1>
+        <div class="menu">
+            {{#each menu}}
+                  <button class="boton">{{ this.nombre }}</button>
+            {{/each}}
+        </div>
     </div>
     <div class="footer">
         todos los derechos reservados 2025
-       
     </div>
 </body>
 </html>
