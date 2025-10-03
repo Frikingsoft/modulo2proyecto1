@@ -8,7 +8,8 @@ const menu = [
   { nombre: "inicio", ruta: "/", icono: "" },
   { nombre: "contacto", ruta: "/contacto", icono: "" },
   { nombre: "ofertas", ruta: "/ofertas", icono: "" },
-  { nombre: "carrito", ruta: "/carrito", icono: "" }
+  { nombre: "carrito", ruta: "/carrito", icono: "" },
+  { nombre: "login", ruta: "/carrito", icono: "" }
 ];
 
 const carrito = [
@@ -50,7 +51,7 @@ servidor.post("/registro", async (req, res) => {
     const salt = bcrypt.genSaltSync(10);
     let { nombre, apellido, contra, correo } = req.body;
     contra = bcrypt.hashSync(contra, salt);
-    
+   
     // Corregida la consulta SQL - los valores deben estar entre comillas
     await query(`INSERT INTO usuarios (nombre, apellido, contra, correo) 
                  VALUES ('${nombre}', '${apellido}', '${contra}', '${correo}')`);

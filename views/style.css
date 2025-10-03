@@ -50,3 +50,12 @@
     transform: scale(1.2);
     transition: 1s;
 }
+.color1{
+    background-color: rgb(22, 81, 34);
+}
+.color2{
+    background-color: brown;
+}
+.color3{
+    background-color: chocolate;
+}
