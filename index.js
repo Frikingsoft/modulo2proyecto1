@@ -3,7 +3,15 @@ import bcrypt from "bcryptjs";
 
 // Inicializar base de datos
 inicializarBaseDeDatos();
-
+const validar=(req,res,next)=>{
+  const {usuario,contra,correo} =req.body
+  if(correo!="" && usuario!="" && contra!=""){
+    next()
+  }
+  else{
+    res.status(400).json("Debe ingresar datos correctos")
+  }
+}
 const menu = [
   { nombre: "inicio", ruta: "/", icono: "" },
   { nombre: "contacto", ruta: "/contacto", icono: "" },
@@ -29,15 +37,21 @@ const carrito = [
     foto: ""
   }
 ];
-
+// get(Obtener) , post(Enviar), put(actualizar) , delete(Borrar)
 servidor.get("/", (req, res) => {
   res.render("index.hbs", { menu, carrito });
-});
+})
 
 servidor.get("/carrito", (req, res) => {
   res.render("carrito.hbs", { menu, carrito });
-});
-
+})
+// middleware: funcion que se ejecuta antes de entrar a la ruta
+servidor.put("/carrito", validar ,(req, res) => {
+  res.render("carrito.hbs", { menu, carrito });
+})
+servidor.delete("/carrito", (req, res) => {
+  res.render("carrito.hbs", { menu, carrito });
+})
 servidor.get("/contacto", (req, res) => {
   res.render("contacto.hbs", { menu });
 });
