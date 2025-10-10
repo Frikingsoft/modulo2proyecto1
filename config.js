@@ -14,7 +14,7 @@ const __dirname = path.dirname(__filename);
 const conexion = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "",
+  password: "Nacional22",
   database: "unisoft"
 });
 
@@ -38,6 +38,7 @@ servidor.use(express.json());
 servidor.use(express.urlencoded({ extended: true })); // Para procesar formularios
 servidor.use(express.static(pagina));
 servidor.use(express.static(path.join(__dirname,"node_modules/bulma/css")))
+servidor.use(express.static(path.join(__dirname,"/public")))
 servidor.set("view engine", "hbs");
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
 

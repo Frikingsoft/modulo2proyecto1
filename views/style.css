@@ -50,12 +50,44 @@
     transform: scale(1.2);
     transition: 1s;
 }
-.color1{
-    background-color: rgb(22, 81, 34);
+
+.registro{
+    margin: auto;
+    margin-top: 100px;
+    width: 40%;
+    height: 50vh;
+    background-color: rgb(186, 186, 186);
+    border-radius: 2%;
+    
 }
-.color2{
-    background-color: brown;
+.entradas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
-.color3{
-    background-color: chocolate;
+.entradas input{
+    width: 51%;
+    margin-bottom: 20px;
+    height: 30px;
+}
+
+.texto{
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+.botones{
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.botones button{
+    background-color: rgb(6, 6, 77);
+    color: white;
+    width: 200px;
+    height: 30px;
 }

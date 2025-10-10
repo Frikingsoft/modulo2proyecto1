@@ -59,23 +59,13 @@ servidor.get("/contacto", (req, res) => {
 servidor.get("/ofertas", (req, res) => {
   res.render("ofertas.hbs", { menu });
 });
-
+servidor.get("/registro",(req,res)=>{
+  res.render("registro.hbs")
+})
 servidor.post("/registro", async (req, res) => {
-  try {
-    const salt = bcrypt.genSaltSync(10);
-    let { nombre, apellido, contra, correo } = req.body;
-    contra = bcrypt.hashSync(contra, salt);
-   
-    // Corregida la consulta SQL - los valores deben estar entre comillas
-    await query(`INSERT INTO usuarios (nombre, apellido, contra, correo) 
-                 VALUES ('${nombre}', '${apellido}', '${contra}', '${correo}')`);
-    
-    res.send("Usuario guardado correctamente");
-  } catch (error) {
-    console.error("Error al registrar usuario:", error);
-    res.status(500).send("Error al registrar usuario");
-  }
-});
+  const { usuario , contra } = req.body
+  console.log(usuario,contra)
+})
 
 // Iniciar servidor
 servidor.listen(80, () => {
