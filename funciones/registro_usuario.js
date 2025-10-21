@@ -1,0 +1,7 @@
+const registro =()=>{
+    
+}
+
+export{
+    registro
+}

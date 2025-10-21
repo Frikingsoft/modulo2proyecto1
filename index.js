@@ -1,17 +1,10 @@
 import { servidor, inicializarBaseDeDatos, query, conexion } from "./config.js";
+import { validar } from "./funciones/validar_usuario.js"
 import bcrypt from "bcryptjs";
 
 // Inicializar base de datos
 inicializarBaseDeDatos();
-const validar=(req,res,next)=>{
-  const {usuario,contra,correo} =req.body
-  if(correo!="" && usuario!="" && contra!=""){
-    next()
-  }
-  else{
-    res.status(400).json("Debe ingresar datos correctos")
-  }
-}
+
 const menu = [
   { nombre: "inicio", ruta: "/", icono: "" },
   { nombre: "contacto", ruta: "/contacto", icono: "" },
@@ -46,7 +39,7 @@ servidor.get("/carrito", (req, res) => {
   res.render("carrito.hbs", { menu, carrito });
 })
 // middleware: funcion que se ejecuta antes de entrar a la ruta
-servidor.put("/carrito", validar ,(req, res) => {
+servidor.put("/carrito", (req, res) => {
   res.render("carrito.hbs", { menu, carrito });
 })
 servidor.delete("/carrito", (req, res) => {
@@ -62,9 +55,9 @@ servidor.get("/ofertas", (req, res) => {
 servidor.get("/registro",(req,res)=>{
   res.render("registro.hbs")
 })
-servidor.post("/registro", async (req, res) => {
-  const { usuario , contra } = req.body
-  console.log(usuario,contra)
+servidor.post("/registro", validar ,async (req, res) => {
+  registro()
+  res.status(200).send("usuario casi registrado")
 })
 
 // Iniciar servidor
