@@ -4,7 +4,7 @@ import path from "path";
 import mysql from "mysql2";
 import util from 'util';
 import { fileURLToPath } from 'url';
-
+import  cors from "cors"
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -35,8 +35,10 @@ async function inicializarBaseDeDatos() {
 let pagina = path.join(__dirname, "views");
 const servidor = express();
 servidor.use(express.json());
+
 servidor.use(express.urlencoded({ extended: true })); // Para procesar formularios
 servidor.use(express.static(pagina));
+servidor.use(cors())
 servidor.use(express.static(path.join(__dirname,"node_modules/bulma/css")))
 servidor.use(express.static(path.join(__dirname,"/public")))
 servidor.set("view engine", "hbs");

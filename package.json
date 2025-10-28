@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon -e js,hbs,json index.js"
+    "dev": "nodemon -e js,hbs,json index.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,7 @@
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "bulma": "^1.0.4",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "hbs": "^4.2.0",

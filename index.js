@@ -55,8 +55,8 @@ servidor.get("/ofertas", (req, res) => {
 servidor.get("/registro",(req,res)=>{
   res.render("registro.hbs")
 })
-servidor.post("/registro", validar ,async (req, res) => {
-  registro()
+servidor.post("/registro",async (req, res) => {
+  console.log(req.body)
   res.status(200).send("usuario casi registrado")
 })
 
